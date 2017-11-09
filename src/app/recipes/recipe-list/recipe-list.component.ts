@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -7,6 +7,7 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent implements OnInit {
+  @Output() selectedRecipeLvl2 = new EventEmitter<Recipe>();
   recipes: Recipe[] = [
     new Recipe(
       'Hamburger',
@@ -19,6 +20,10 @@ export class RecipeListComponent implements OnInit {
       'http://drop.ndtv.com/albums/COOKS/corngallery/creolespicedcornthumb_640x480.jpg'
     )
   ];
+
+  passOnInfo(recipe: Recipe) {
+    this.selectedRecipeLvl2.emit(recipe);
+  }
 
   constructor() { }
 
