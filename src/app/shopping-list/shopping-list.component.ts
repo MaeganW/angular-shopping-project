@@ -17,6 +17,8 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit() {
   }
 
+  // the following function DOES work although linter says otherwise
+  // console logs the new array
   onIngredientAdded(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
   }
